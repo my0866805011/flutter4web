@@ -15,26 +15,39 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScreenTypeLayout(
-        desktop: desktopLayout(),
-        tablet: desktopLayout(),
-        mobile: const Text('This is Home type Mobile'),
-      ),
-    );
-
-  }
-
-  Widget desktopLayout() => Column(
-    children: [
-      NavigatorLayOut(),
-      Expanded(
-        child: Row(
-          children: [
-            ContentLayout(),
-            CallToActionLayout(),
-          ],
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1200),
+          child: ScreenTypeLayout(
+            desktop: desktopLayout(),
+            tablet: desktopLayout(),
+            mobile: tabletMobile(),
+          ),
         ),
       ),
-    ],
-  );
+    );
+  }
+
+  Widget tabletMobile() => Column(
+        children: const [
+          NavigatorLayOut(),
+          CallToActionLayout(),
+          ContentLayout(),
+        ],
+      );
+
+  Widget desktopLayout() => Column(
+        children: [
+          const NavigatorLayOut(),
+          Expanded(
+            child: Row(
+              children: const [
+                ContentLayout(),
+                CallToActionLayout(),
+              ],
+            ),
+          ),
+        ],
+      );
 }

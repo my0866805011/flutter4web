@@ -7,7 +7,7 @@ class ContentLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(width: 600,
       color: Colors.green.shade100,
-      child:const Text('Content Layout'),
+      child:Center(child: const Text('Content Layout')),
     );
   }
 }
