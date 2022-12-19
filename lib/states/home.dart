@@ -29,13 +29,13 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget tabletMobile() => Column(
-        children: const [
-          NavigatorLayOut(),
-          CallToActionLayout(),
-          ContentLayout(),
-        ],
-      );
+  Widget tabletMobile() =>ListView(
+      children: const [
+        NavigatorLayOut(),
+        CallToActionLayout(),
+        ContentLayout(),
+      ],
+    );
 
   Widget desktopLayout() => Column(
         children: [
